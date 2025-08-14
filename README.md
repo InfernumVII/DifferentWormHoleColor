@@ -4,8 +4,8 @@
 - Add custom portal for each team, now you can recognize where your and enemy portal
 
 ## 🔮 Features
-- **Sorceres** - now Sorceres will have green portal
-- **Warlocks** - now Warlocks will have red portal
+- **Sorceres** - will have green portal
+- **Warlocks** - will have red portal
 
 ## 🛠 Setup
 1. Download last version of mod
