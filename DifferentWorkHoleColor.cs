@@ -20,6 +20,7 @@ public class DifferentWormHoleColor : BaseUnityPlugin
         Logger.LogInfo($"DifferentWormHoleColor is loaded!");
     }
 
+    //Hate Update but spawning of players in the start of the match have some random timing because of net
     private void Update()
     {
         MageBookToTeamID.Clear();

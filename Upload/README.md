@@ -1,5 +1,3 @@
-# Those who want to rebuild, do not forget to change the path to the game files in .csproj
-
 # DifferentWorkHoleColor for MageArena
 - Add a custom portal for each team. Now you can easily recognize your own and your opponent's portals.
 

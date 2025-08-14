@@ -1,0 +1,7 @@
+{
+    "name": "DifferentWorkHoleColor",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/InfernumVII/DifferentWormHoleColor",
+    "description": "Add a custom portal for each team. Now you can easily recognize your own and your opponent's portals.",
+    "dependencies": ["BepInEx-BepInExPack-5.4.2100"]
+}
