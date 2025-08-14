@@ -15,10 +15,9 @@ public class DifferentWormHoleColor : BaseUnityPlugin
 
     private void Awake()
     {
-        // Plugin startup logic
         Logger = base.Logger;
         harmony.PatchAll();
-        Logger.LogInfo($"Plugin  is loaded!");
+        Logger.LogInfo($"DifferentWormHoleColor is loaded!");
     }
 
     private void Update()
@@ -44,7 +43,7 @@ public class DifferentWormHoleColor : BaseUnityPlugin
             {
                 MageBookToTeamID[child.gameObject] = teamID;
             }
-            ScanForMageBooks(child, teamID); // Recursive search
+            ScanForMageBooks(child, teamID); 
         }
     }
     

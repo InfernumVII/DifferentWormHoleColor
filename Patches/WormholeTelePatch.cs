@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using HarmonyLib;
 using UnityEngine;
@@ -11,27 +12,31 @@ namespace DifferentWormHoleColor.Patches
         [HarmonyPostfix]
         private static void StartPostfix(WormholeTele __instance)
         {
-            string filePath = "";
-            int teamID = DifferentWormHoleColor.GetTeamIDByMageBook(__instance.mbc.gameObject);
-            if (teamID == 0)
-            {
-                filePath = "C:/Users/egor5/Documents/portal_red2.png";
-            }
-            else if (teamID == 2)
-            {
-                filePath = "C:/Users/egor5/Documents/portal_green.png";
-            }
-            else
-            {
-                return;
-            }
+            Texture2D texture2D = GetTeamWormholeTexture(DifferentWormHoleColor.GetTeamIDByMageBook(__instance.mbc.gameObject));
+            if (texture2D == null) return;            
             GameObject planeOfWormHole = __instance.gameObject.transform.GetChild(0).gameObject;
             MeshRenderer renderer = planeOfWormHole.GetComponent<MeshRenderer>();
             Material material = renderer.materials[0];
-            byte[] fileData = File.ReadAllBytes(filePath);
-            Texture2D texture2D = new Texture2D(2, 2);
-            texture2D.LoadImage(fileData);
             material.SetTexture("_Texture2D", texture2D);
         }
+
+        private static Texture2D Base64ToTexture(string base64String)
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(imageBytes);
+            return texture;
+        }
+
+        private static Texture2D GetTeamWormholeTexture(int teamId)
+        {
+            return teamId switch
+            {
+                0 => Base64ToTexture(Images.greenWormHole),
+                2 => Base64ToTexture(Images.redWormHole),
+                _ => null
+            };
+        }
     }
+    
 }
